@@ -1,0 +1,34 @@
+version: '2'
+networks:
+  bandmate-net:
+    driver: bridge
+services:
+  bandmate-web:
+    ports:
+      - "8089:80"
+    container_name: bandmate-web
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    networks:
+      - bandmate-net
+#    environment:
+#      - XDEBUG_CONFIG="remote_host=192.168.1.141 idekey=PHPSTORM-WEB remote_enable=1"
+    volumes:
+      - "./:/bandmate"
+      - "./docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
+      - "./docker/apache:/etc/apache2/sites-enabled"
+  bandmate-mysql:
+    networks:
+      - bandmate-net
+    image: mysql:5.7
+    container_name: mysql
+    volumes:
+      - ./docker-import:/docker-entrypoint-initdb.d
+    ports:
+      - "33066:3306"
+    environment:
+      - MYSQL_DATABASE=bandmate
+      - MYSQL_USER=MYSQL_USER
+      - MYSQL_PASSWORD=MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD=MYSQL_ROOT_PASSWORD

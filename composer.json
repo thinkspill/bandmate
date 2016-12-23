@@ -1,0 +1,69 @@
+{
+  "name": "thinkspill/bandmate",
+  "description": "It's B&M8! The Simple Sample Favorite Bands CRUD App!",
+  "keywords": [
+    "crud",
+    "codesample",
+    "rockingout"
+  ],
+  "license": "MIT",
+  "type": "project",
+  "minimum-stability": "dev",
+  "config": {
+    "sort-packages": true,
+    "discard-changes": true,
+    "preferred-install": "dist"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/thinkspill/random-name-generator"
+    }
+  ],
+  "require": {
+    "doctrine/dbal": "^2.5",
+    "kyslik/column-sortable": "^5.1",
+    "laravel/framework": "5.3.*",
+    "laravelcollective/html": "^5.3.0",
+    "php": ">=5.6.4"
+  },
+  "require-dev": {
+    "barryvdh/laravel-ide-helper": "^2.2",
+    "fzaninotto/faker": "~1.4",
+    "laracasts/generators": "^1.1",
+    "nubs/random-name-generator": "dev-master",
+    "symfony/css-selector": "3.1.*",
+    "symfony/dom-crawler": "3.1.*",
+    "phpunit/phpunit": "^5.0",
+    "phpunit/php-timer": "dev-master@dev"
+  },
+  "autoload": {
+    "classmap": [
+      "database", "tests"
+    ],
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php"
+    ]
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "php artisan key:generate"
+    ],
+    "post-install-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postInstall",
+      "php artisan optimize"
+    ],
+    "post-update-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+      "php artisan optimize"
+    ]
+  }
+}
