@@ -22,7 +22,7 @@ Next, `git clone` or download and unzip a copy of this code to somewhere conveni
 The following will clone the repository to `~/code/bandmate`:
 
 ```bash
-$ mkdir ~/code2; cd ~/code2; git clone https://github.com/thinkspill/bandmate.git && cd bandmate
+$ mkdir ~/code; cd ~/code; git clone https://github.com/thinkspill/bandmate.git && cd bandmate
 ```
 
 If all goes well, you should be at `~/code/bandmate` with all the code cloned. Start the app with `docker-compose`:
