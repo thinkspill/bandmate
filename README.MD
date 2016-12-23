@@ -1,6 +1,6 @@
 # OI! B&M8!
 
-Cread, Read, Update, and Delete All Your Favorite Bands, with BandMate!
+Create, Read, Update, and Delete All Your Favorite Bands, with BandMate!
 
 ## Getting Started
 
