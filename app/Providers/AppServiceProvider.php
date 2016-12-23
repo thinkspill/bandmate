@@ -21,12 +21,6 @@ class AppServiceProvider extends ServiceProvider
         View::share('brandEasterEgg', $brandEasterEgg);
         View::share('randomAlbumCover', $randomAlbumCover);
         View::share('randomAlbumText', $randomAlbumText);
-        Blade::directive('cache', function ($expression) {
-            return "<?php if ( ! App\ContentCache::setUp{$expression}) { ?>";
-        });
-        Blade::directive('endcache', function () {
-            return "<?php } echo App\ContentCache::tearDown() ?>";
-        });
     }
 
     /**
