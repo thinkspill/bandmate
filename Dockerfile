@@ -63,7 +63,7 @@ RUN php artisan key:generate
 RUN mkdir /sqlite
 
 RUN touch /sqlite/bandmate.sqlite \
-        && chown -R www-data /sqlite
+        && chown -R www-data /sqlite \
         && php artisan migrate \
         && php artisan db:seed
 
