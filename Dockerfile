@@ -64,4 +64,6 @@ RUN touch /bandmate.sqlite \
         && php artisan migrate \
         && php artisan db:seed
 
+RUN chmod -R 777 /bandmate/storage
+
 RUN vendor/bin/phpunit
