@@ -15,6 +15,6 @@ services:
 #    environment:
 #      - XDEBUG_CONFIG="remote_host=192.168.1.141 idekey=PHPSTORM-WEB remote_enable=1"
     volumes:
-      - "./:/bandmate"
+#      - "./:/bandmate"
       - "./docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
       - "./docker/apache:/etc/apache2/sites-enabled"
