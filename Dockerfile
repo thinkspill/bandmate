@@ -60,7 +60,10 @@ RUN composer dumpautoload -o
 
 RUN php artisan key:generate
 
-RUN touch /bandmate.sqlite \
+RUN mkdir /sqlite
+
+RUN touch /sqlite/bandmate.sqlite \
+        && chown -R www-data /sqlite
         && php artisan migrate \
         && php artisan db:seed
 
