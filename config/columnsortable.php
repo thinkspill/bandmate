@@ -2,7 +2,6 @@
 
 return [
 
-
     /*
     defines icon set to use when sorted data is none above (alpha nor amount nor numeric)
      */
@@ -62,5 +61,5 @@ return [
     /*
     default order for non-sorted columns
      */
-    'default_direction_unsorted' => 'asc'
+    'default_direction_unsorted' => 'asc',
 ];
