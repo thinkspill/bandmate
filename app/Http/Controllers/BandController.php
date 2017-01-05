@@ -71,7 +71,7 @@ class BandController extends Controller
         );
         $band = new Band($request->all());
         $band->slug = str_slug($request->name);
-        if (!$band->save($request->all())) {
+        if (! $band->save($request->all())) {
             $request->session()->flash('error', 'Could not save '.$band->name);
         } else {
             $request->session()->flash('success', 'Saved '.$band->name);
@@ -88,7 +88,7 @@ class BandController extends Controller
             ]
         );
         $band->slug = str_slug($request->name);
-        if (!$band->update($request->all())) {
+        if (! $band->update($request->all())) {
             $request->session()->flash('error', 'Could not update '.$band->name);
         } else {
             $request->session()->flash('success', 'Updated '.$band->name);

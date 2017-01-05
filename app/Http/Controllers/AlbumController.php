@@ -69,7 +69,7 @@ class AlbumController extends Controller
             ]
         );
         $album = new Album($request->all());
-        if (!$album->save($request->all())) {
+        if (! $album->save($request->all())) {
             $request->session()->flash('error', 'Could not save '.$album->name);
         } else {
             $request->session()->flash('success', 'Saved '.$album->name);
@@ -86,7 +86,7 @@ class AlbumController extends Controller
                 'band_id' => 'required',
             ]
         );
-        if (!$album->update($request->all())) {
+        if (! $album->update($request->all())) {
             $request->session()->flash('error', 'Could not update '.$album->name);
         } else {
             $request->session()->flash('success', 'Updated '.$album->name);
