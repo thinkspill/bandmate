@@ -1,0 +1,6 @@
+bandmate_web:
+  ports:
+    - "8089:80"
+  build:
+    context: ./
+    dockerfile: Dockerfile

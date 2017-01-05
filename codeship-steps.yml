@@ -1,0 +1,4 @@
+- name: test
+  tag: master
+  service: bandmate_web
+  command: cd /bandmate && /bandmate/vendor/bin/phpunit
