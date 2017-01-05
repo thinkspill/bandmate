@@ -2,11 +2,11 @@
 
 namespace App\Exceptions;
 
+use Response;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Response;
 
 class Handler extends ExceptionHandler
 {
