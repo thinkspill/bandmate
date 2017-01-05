@@ -11,7 +11,6 @@ class CreateAlbumsTable extends Migration
         Schema::dropIfExists('albums', function (Blueprint $table) {
             $table->dropForeign('albums_band_id_foreign');
         });
-
     }
 
     public function up()

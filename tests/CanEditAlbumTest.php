@@ -5,7 +5,7 @@ class CanEditAlbumTest extends AbstractBandMateTestCase
     public function testEditAlbum()
     {
         $testAlbum = $this->makeTestAlbum();
-        $newAlbumName = 'newtest'.random_int(1111,9999);
+        $newAlbumName = 'newtest'.random_int(1111, 9999);
         $name = $testAlbum['name'];
         $id = $testAlbum['id'];
         $this->visitRoute('albums.index');

@@ -5,7 +5,7 @@ class CanEditBandTest extends AbstractBandMateTestCase
     public function testEditBand()
     {
         $testBand = $this->makeTestBand();
-        $newBandName = 'newtest'.random_int(1111,9999);
+        $newBandName = 'newtest'.random_int(1111, 9999);
         $name = $testBand['name'];
         $id = $testBand['id'];
         $this->visit('/bands?order=desc&sort=id');

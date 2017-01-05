@@ -3,13 +3,13 @@
 $factory->define(App\Album::class, function (Faker\Generator $faker) {
     $albumGenerator = new \Nubs\RandomNameGenerator\All(
         [
-            new \Nubs\RandomNameGenerator\Vgng()
+            new \Nubs\RandomNameGenerator\Vgng(),
         ]
     );
 
     $labelGenerator = new \Nubs\RandomNameGenerator\All(
         [
-            new \Nubs\RandomNameGenerator\Alliteration()
+            new \Nubs\RandomNameGenerator\Alliteration(),
         ]
     );
 
@@ -165,16 +165,17 @@ Unknown');
     $releaseDate = \Carbon\Carbon::createFromFormat('Y-m-d', $recordedDate)
                                  ->addMonths(random_int(1, 24))
                                  ->format('Y-m-d');
+
     return [
-        'name' => $albumGenerator->getName(),
-        'recorded_date' => $recordedDate,
-        'release_date' => $releaseDate,
+        'name'             => $albumGenerator->getName(),
+        'recorded_date'    => $recordedDate,
+        'release_date'     => $releaseDate,
         'number_of_tracks' => $faker->numberBetween(5, 20),
-        'label' => $labelGenerator->getName(),
-        'producer' => $faker->name,
-        'genre' => $faker->randomElement($genres),
-        'band_id' => function () {
+        'label'            => $labelGenerator->getName(),
+        'producer'         => $faker->name,
+        'genre'            => $faker->randomElement($genres),
+        'band_id'          => function () {
             return DB::table('bands')->inRandomOrder()->first()->id;
-        }
+        },
     ];
 });
