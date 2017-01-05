@@ -55,6 +55,7 @@ COPY ./package.json /bandmate/package.json
 COPY ./phpunit.xml /bandmate/phpunit.xml
 COPY ./server.php /bandmate/server.php
 COPY ./yarn.lock /bandmate/yarn.lock
+COPY ./docker/apache/0-bandmate.dev.conf /etc/apache2/sites-enabled/0-bandmate.dev.conf
 
 RUN composer dumpautoload -o
 

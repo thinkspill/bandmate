@@ -1,20 +1,19 @@
 version: '2'
 networks:
-  bandmate-net:
+  bandmate_net:
     driver: bridge
 services:
-  bandmate-web:
+  bandmate_web:
     ports:
       - "8089:80"
-    container_name: bandmate-web
     build:
       context: ./
       dockerfile: Dockerfile
     networks:
-      - bandmate-net
+      - bandmate_net
 #    environment:
 #      - XDEBUG_CONFIG="remote_host=192.168.1.141 idekey=PHPSTORM-WEB remote_enable=1"
-    volumes:
+#    volumes:
 #      - "./:/bandmate"
-      - "./docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
-      - "./docker/apache:/etc/apache2/sites-enabled"
+#      - "./docker/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
+#      - "./docker/apache:/etc/apache2/sites-enabled"
