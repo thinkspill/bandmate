@@ -12,6 +12,7 @@ class BandController extends Controller
     {
         $band = new Band();
         $title = 'Add New Band';
+
         return view('layouts.bandmate.editband', compact('band', 'request', 'title'));
     }
 
@@ -25,12 +26,14 @@ class BandController extends Controller
             $request->session()
                     ->flash('error', 'Something went wrong deleting id '.$band);
         }
+
         return redirect('/bands');
     }
 
     public function edit(Band $band, Request $request)
     {
         $title = 'Editing '.$band->name;
+
         return view('layouts.bandmate.editband', compact('request', 'band', 'title'));
     }
 
@@ -38,6 +41,7 @@ class BandController extends Controller
     {
         $bands = $band::sortable()->paginate();
         $title = 'All Your Favorite Bands!';
+
         return view('layouts.bandmate.bands', compact('bands', 'request', 'title'));
     }
 
@@ -52,7 +56,8 @@ class BandController extends Controller
         $yearsRocking = \Carbon\Carbon::createFromFormat('Y-m-d', $band->start_date)
                                       ->diffInYears(\Carbon\Carbon::now('UTC'));
         $albumCount = $band->albums()->count();
-        $title = 'Details for ' . $band->name;
+        $title = 'Details for '.$band->name;
+
         return view('layouts.bandmate.band',
             compact('band', 'bands', 'request', 'yearsRocking', 'albumCount', 'title'));
     }
@@ -66,13 +71,13 @@ class BandController extends Controller
         );
         $band = new Band($request->all());
         $band->slug = str_slug($request->name);
-        if ( ! $band->save($request->all())) {
+        if (!$band->save($request->all())) {
             $request->session()->flash('error', 'Could not save '.$band->name);
         } else {
             $request->session()->flash('success', 'Saved '.$band->name);
         }
-        return redirect('/');
 
+        return redirect('/');
     }
 
     public function update(Band $band, Request $request)
@@ -83,11 +88,12 @@ class BandController extends Controller
             ]
         );
         $band->slug = str_slug($request->name);
-        if ( ! $band->update($request->all())) {
+        if (!$band->update($request->all())) {
             $request->session()->flash('error', 'Could not update '.$band->name);
         } else {
             $request->session()->flash('success', 'Updated '.$band->name);
         }
+
         return redirect('/');
     }
 }

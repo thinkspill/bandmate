@@ -11,9 +11,9 @@ class AlbumController extends Controller
     {
         $album = new Album();
         $title = 'Add New Album';
+
         return view('layouts.bandmate.editalbum',
             compact('album', 'request', 'title'));
-
     }
 
     public function destroy(Album $album, Request $request)
@@ -26,12 +26,14 @@ class AlbumController extends Controller
             $request->session()
                     ->flash('error', 'Something went wrong deleting id '.$album);
         }
+
         return redirect('/albums');
     }
 
     public function edit(Album $album, Request $request)
     {
         $title = 'Editing '.$album->name;
+
         return view('layouts.bandmate.editalbum',
             compact('request', 'album', 'title'));
     }
@@ -47,6 +49,7 @@ class AlbumController extends Controller
         }
         $flash = $request->session()->get('status');
         $title = 'Album Index';
+
         return view('layouts.bandmate.albums',
             compact('albums', 'request', 'bands', 'flash', 'title'));
     }
@@ -60,34 +63,35 @@ class AlbumController extends Controller
     {
         $this->validate($request,
             [
-                'name' => 'required',
+                'name'          => 'required',
                 'recorded_date' => 'required|date',
-                'release_date' => 'required|date',
+                'release_date'  => 'required|date',
             ]
         );
         $album = new Album($request->all());
-        if ( ! $album->save($request->all())) {
+        if (!$album->save($request->all())) {
             $request->session()->flash('error', 'Could not save '.$album->name);
         } else {
             $request->session()->flash('success', 'Saved '.$album->name);
         }
-        return redirect('/albums');
 
+        return redirect('/albums');
     }
 
     public function update(Album $album, Request $request)
     {
         $this->validate($request,
             [
-                'name' => 'required',
+                'name'    => 'required',
                 'band_id' => 'required',
             ]
         );
-        if ( ! $album->update($request->all())) {
+        if (!$album->update($request->all())) {
             $request->session()->flash('error', 'Could not update '.$album->name);
         } else {
             $request->session()->flash('success', 'Updated '.$album->name);
         }
+
         return redirect('/albums');
     }
 }
