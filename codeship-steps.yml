@@ -1,4 +1,4 @@
 - name: test
   tag: master
   service: bandmate_web
-  command: /bin/bash -s "cd /bandmate && /bandmate/vendor/bin/phpunit"
+  command: vendor/bin/phpunit
