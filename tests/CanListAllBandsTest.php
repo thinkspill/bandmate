@@ -7,6 +7,5 @@ class CanListAllBandsTest extends AbstractBandMateTestCase
         $testBand = $this->makeTestBand();
         $this->visit('/bands?order=desc&sort=id');
         $this->seeText($testBand['name']);
-
     }
 }

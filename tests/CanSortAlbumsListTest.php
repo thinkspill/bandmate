@@ -14,6 +14,5 @@ class CanSortAlbumsListTest extends AbstractBandMateTestCase
         $this->click('Id');
         $this->seePageIs('/albums?order=desc&sort=id');
         $this->seeText($name);
-
     }
 }

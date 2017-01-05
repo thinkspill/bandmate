@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -43,12 +42,13 @@ class AppServiceProvider extends ServiceProvider
                 'city',
                 'nightlife',
                 'nature',
-                'cats'
+                'cats',
             ];
 
             $key = array_rand($albumCoverCategories);
             $category = $albumCoverCategories[$key];
             $size = random_int(300, 400);
+
             return "http://lorempixel.com/$size/$size/$category/";
         };
     }
@@ -64,6 +64,7 @@ class AppServiceProvider extends ServiceProvider
                 '"Avant Garde"',
             ];
             $key = array_rand($albumCoverFonts);
+
             return $albumCoverFonts[$key];
         };
     }
